@@ -1,13 +1,19 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
+// Описаний в документації
+
 
 console.log(galleryItems);
 
-
 const galleryBoxList = document.querySelector('.gallery');
 const imageMarkup = createBoxImageMarkup(galleryItems);
-
+// const lightbox = new SimpleLightbox(".gallery a", {
+//     captionsData: "alt",
+//     captionDelay: 250,
+// });
 galleryBoxList.insertAdjacentHTML('beforeend', imageMarkup);
 galleryBoxList.addEventListener('click', onImgClick);
 
@@ -30,9 +36,9 @@ function onImgClick(evt) {
     if (currentItem.nodeName !== 'IMG') {
         return;
     }
-    const modal = new SimpleLightbox('.gallery .gallery__link', {
+    let lightbox = new SimpleLightbox(".gallery a", {
         captionsData: "alt",
-        captionDelay:250,
+        captionDelay: 250,
     });
     modal.open();
     console.log(modal);
