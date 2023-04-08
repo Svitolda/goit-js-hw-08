@@ -10,11 +10,8 @@ player.on('timeupdate', throttle(onPlay, 1000));
 function onPlay(event) {
   localStorage.setItem(CURRENT_TIME, event.seconds);
 }
-setCurrentTime();
-function setCurrentTime() {
-  if (!localStorage.getItem(CURRENT_TIME) === null) {
-    return;
-  }
-  player.setCurrentTime(localStorage.getItem(CURRENT_TIME));
-}
 
+  player.setCurrentTime(localStorage.getItem(CURRENT_TIME)|| 0);
+
+
+ 
