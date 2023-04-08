@@ -6,14 +6,15 @@ const CURRENT_TIME = 'videoplayer-current-time';
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-player.on(' timeupdate', throttle(onPlay, 1000));
+player.on('timeupdate', throttle(onPlay, 1000));
 function onPlay(event) {
   localStorage.setItem(CURRENT_TIME, event.seconds);
 }
 setCurrentTime();
 function setCurrentTime() {
-  if (!localStorage.getItem(CURRENT_TIME)) {
+  if (!localStorage.getItem(CURRENT_TIME) === null) {
     return;
   }
   player.setCurrentTime(localStorage.getItem(CURRENT_TIME));
 }
+

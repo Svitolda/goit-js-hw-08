@@ -2,7 +2,7 @@ import throttle from "lodash.throttle";
 
 const STORAGE_KEY = 'feedback-msg';
 let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-const form = document.querySelector(".feedback-form");
+const form = document.querySelector("[required]").attributes["required"] = "";
 // const textarea = document.querySelector(".feedback-form textarea");
 onPageReload();
 
